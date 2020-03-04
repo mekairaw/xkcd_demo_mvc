@@ -4,7 +4,7 @@ using System.Text;
 
 namespace XKCDTest.DTO.ViewModels
 {
-    public class VMNavigation
+    public class VMNavegation
     {
         public int? PreviousComicId { get; set; }
         public int? NextComicId { get; set; }
