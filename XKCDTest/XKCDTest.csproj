@@ -1,11 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="5.0.23" />
+  </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\XKCDTest.DTO\XKCDTest.DTO.csproj" />
+    <ProjectReference Include="..\XKCDTest.Repository\XKCDTest.Repository.csproj" />
+    <ProjectReference Include="..\XKCDTest.Service\XKCDTest.Service.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,14 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model VMComicDetail
+@{
+    ViewData["Title"] = "Comic of the Day!";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="text-center">
+            <h1>@Model?.Title</h1>
+            <img alt="@Model?.Alt" src="@Model?.Img"/>
+            <h4>@Model?.Alt</h4>
+        </div>
+    </div>
 </div>
