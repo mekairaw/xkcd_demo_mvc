@@ -19,7 +19,16 @@ namespace XKCDTest.Service.Implementations
         public async Task<VMComic> GetComicOfDay()
         {
             var comicOfDay = await _comicRepo.GetComicOfDay();
-            return new VMComic { Comic = comicOfDay };
+            var navigation = await GetNavigationById(comicOfDay?.Num);
+            return new VMComic { Comic = comicOfDay, NextComicId = navigation?.NextComicId, PreviousComicId = navigation?.PreviousComicId };
+        }
+        public async Task<VMNavigation> GetNavigationById(int? comicId)
+        {
+            if(comicId != null)
+            {
+                return new VMNavigation { NextComicId = await _comicRepo.GetIdOfNextComic(comicId.Value), PreviousComicId = await _comicRepo.GetIdOfPreviousComic(comicId.Value) };
+            }
+            return new VMNavigation { NextComicId = null, PreviousComicId = null };
         }
     }
 }

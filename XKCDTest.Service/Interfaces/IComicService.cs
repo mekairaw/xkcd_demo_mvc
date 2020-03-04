@@ -9,5 +9,6 @@ namespace XKCDTest.Service.Interfaces
     public interface IComicService
     {
         Task<VMComic> GetComicOfDay();
+        Task<VMNavigation> GetNavigationById(int? comicId);
     }
 }
