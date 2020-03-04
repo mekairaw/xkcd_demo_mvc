@@ -18,10 +18,14 @@ namespace XKCDTest.Repository.Implementations
         {
             _api = RestService.For<IAPI>("https://xkcd.com");
         }
-        public async Task<VMComicDetail> GetComicOfDay()
+        public async Task<VMComicDetail> GetComicOfDay(int? id)
         {
             try
             {
+                if(id != null)
+                {
+                    return await _api.GetCustomComic(id);
+                }
                 return await _api.GetComicOfDay();
             }
             catch (Exception)

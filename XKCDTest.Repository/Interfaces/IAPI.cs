@@ -11,5 +11,7 @@ namespace XKCDTest.Repository.Interfaces
     {
         [Get("/info.0.json")]
         Task<VMComicDetail> GetComicOfDay();
+        [Get("/{id}/info.0.json")]
+        Task<VMComicDetail> GetCustomComic(int? id);
     }
 }
