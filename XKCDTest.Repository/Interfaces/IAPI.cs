@@ -9,7 +9,7 @@ namespace XKCDTest.Repository.Interfaces
 {
     public interface IAPI
     {
-        [Get("info.0.json")]
+        [Get("/info.0.json")]
         Task<VMComicDetail> GetComicOfDay();
     }
 }

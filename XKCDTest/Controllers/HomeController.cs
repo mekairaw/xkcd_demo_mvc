@@ -5,21 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using XKCDTest.Models;
+using XKCDTest.Service.Interfaces;
 
 namespace XKCDTest.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IComicService _comicService;
 
-        public HomeController()
+        public HomeController(IComicService comicService)
         {
-
+            _comicService = comicService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var comic = await _comicService.GetComicOfDay();
+            return View(comic);
         }
     }
 }

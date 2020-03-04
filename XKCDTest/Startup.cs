@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using XKCDTest.Repository.Interfaces;
 using XKCDTest.Repository.Implementations;
+using XKCDTest.Service.Interfaces;
+using XKCDTest.Service.Implementations;
 using Refit;
 
 namespace XKCDTest
@@ -30,6 +32,7 @@ namespace XKCDTest
 
             services.AddRefitClient<IAPI>().ConfigureHttpClient(client => client.BaseAddress = new Uri("https://xkcd.com"));
             services.AddScoped<IComicRepo, ComicRepo>();
+            services.AddScoped<IComicService, ComicService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

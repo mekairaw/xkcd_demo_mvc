@@ -10,7 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\XKCDTest.DTO\XKCDTest.DTO.csproj" />
     <ProjectReference Include="..\XKCDTest.Repository\XKCDTest.Repository.csproj" />
+    <ProjectReference Include="..\XKCDTest.Service\XKCDTest.Service.csproj" />
   </ItemGroup>
 
 </Project>
