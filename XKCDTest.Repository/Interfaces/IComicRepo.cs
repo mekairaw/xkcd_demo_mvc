@@ -8,6 +8,10 @@ namespace XKCDTest.Repository.Interfaces
 {
     public interface IComicRepo
     {
-        Task<VMComicDetail> GetComicOfDay();
+        Task<VMComicDetail> GetComicOfDay(int? id = null);
+        Task<int?> GetIdOfLastComic();
+        Task<int?> GetIdOfFirstComic();
+        Task<int?> GetIdOfPreviousComic(int comicId);
+        Task<int?> GetIdOfNextComic(int comicId);
     }
 }

@@ -23,5 +23,11 @@ namespace XKCDTest.Controllers
             var comic = await _comicService.GetComicOfDay();
             return View(comic);
         }
+        [Route("comic/{id}")]
+        public async Task<IActionResult> Index([FromRoute]int id)
+        {
+            var comic = await _comicService.GetCustomComic(id);
+            return View(comic);
+        }
     }
 }

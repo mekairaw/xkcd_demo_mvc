@@ -1,14 +1,24 @@
-﻿@model VMComicDetail
+﻿@model VMComic
 @{
-    ViewData["Title"] = "Comic of the Day!";
+    ViewData["Title"] = @Model.NextComicId == null ? "Comic of the Day!" : Model?.Comic?.SafeTitle;
 }
 
 <div class="row">
     <div class="col-sm-12">
         <div class="text-center">
-            <h1>@Model?.Title</h1>
-            <img alt="@Model?.Alt" src="@Model?.Img"/>
-            <h4>@Model?.Alt</h4>
+            <h1>@Model?.Comic?.Title</h1>
+            <img alt="@Model?.Comic?.Alt" src="@Model?.Comic.Img"/>
+            <h4>@Model?.Comic?.Alt</h4>
+        </div>
+        <div class="text-center">
+            @if(Model?.NextComicId != null)
+            {
+                <a href="/comic/@Model.NextComicId">Next</a>
+            }
+            @if(Model?.PreviousComicId != null)
+            {
+                <a href="/comic/@Model.PreviousComicId">Previous</a>
+            }
         </div>
     </div>
 </div>
