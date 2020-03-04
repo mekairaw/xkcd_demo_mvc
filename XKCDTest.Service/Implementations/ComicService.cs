@@ -16,10 +16,10 @@ namespace XKCDTest.Service.Implementations
         {
             _comicRepo = comicRepo;
         }
-        public async Task<VMComicDetail> GetComicOfDay()
+        public async Task<VMComic> GetComicOfDay()
         {
             var comicOfDay = await _comicRepo.GetComicOfDay();
-            return comicOfDay;
+            return new VMComic { Comic = comicOfDay };
         }
     }
 }

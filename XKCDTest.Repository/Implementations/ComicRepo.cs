@@ -29,5 +29,17 @@ namespace XKCDTest.Repository.Implementations
                 return null;
             }
         }
+        public async Task<int?> GetIdOfLastComic()
+        {
+            try
+            {
+                var lastComic = await _api.GetComicOfDay();
+                return lastComic.Num;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

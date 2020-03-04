@@ -8,6 +8,6 @@ namespace XKCDTest.Service.Interfaces
 {
     public interface IComicService
     {
-        Task<VMComicDetail> GetComicOfDay();
+        Task<VMComic> GetComicOfDay();
     }
 }
