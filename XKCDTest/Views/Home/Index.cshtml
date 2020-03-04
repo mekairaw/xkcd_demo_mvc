@@ -11,13 +11,13 @@
             <h4>@Model?.Comic?.Alt</h4>
         </div>
         <div class="text-center">
-            @if(Model?.NextComicId != null)
-            {
-                <a href="/comic/@Model.NextComicId">Next</a>
-            }
-            @if(Model?.PreviousComicId != null)
+            @if (Model?.PreviousComicId != null)
             {
                 <a href="/comic/@Model.PreviousComicId">Previous</a>
+            }
+            @if (Model?.NextComicId != null)
+            {
+                <a href="/comic/@Model.NextComicId">Next</a>
             }
         </div>
     </div>
