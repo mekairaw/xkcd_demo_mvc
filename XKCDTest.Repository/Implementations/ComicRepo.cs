@@ -56,5 +56,23 @@ namespace XKCDTest.Repository.Implementations
                 return null;
             }
         }
+        public async Task<int?> GetIdOfPreviousComic(int comicId)
+        {
+            int? firstId = await GetIdOfFirstComic();
+            if(firstId != null && (comicId - 1 < firstId))
+            {
+                return null;
+            }
+            return comicId - 1;
+        }
+        public async Task<int?> GetIdOfNextComic(int comicId)
+        {
+            int? lastId = await GetIdOfLastComic();
+            if(lastId != null && (comicId + 1 > lastId))
+            {
+                return null;
+            }
+            return comicId + 1;
+        }
     }
 }
