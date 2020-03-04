@@ -8,5 +8,7 @@ namespace XKCDTest.DTO.ViewModels
     {
         public int? PreviousComicId { get; set; }
         public int? NextComicId { get; set; }
+        public int? FirstComicId { get; set; }
+        public int? LastComicId { get; set; }
     }
 }

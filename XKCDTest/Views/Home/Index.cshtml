@@ -3,22 +3,35 @@
     ViewData["Title"] = @Model.NextComicId == null ? "Comic of the Day!" : Model?.Comic?.SafeTitle;
 }
 
-<div class="row">
+<div class="row align-middle">
     <div class="col-sm-12">
-        <div class="text-center">
-            <h1>@Model?.Comic?.Title</h1>
-            <img class="img-fluid" alt="@Model?.Comic?.Alt" src="@Model?.Comic.Img"/>
-            <h4>@Model?.Comic?.Alt</h4>
+        <div class="card text-white bg-dark text-center">
+            <img class="card-img-top" alt="@Model?.Comic?.Alt" src="@Model?.Comic?.Img" />
+            <div class="card-header"><h3>@Model?.Comic?.SafeTitle</h3></div>
+            <div class="card-body">
+                <p class="card-text">@Model?.Comic?.Alt</p>
+            </div>
         </div>
+        <br/>
         <div class="text-center">
-            @if (Model?.PreviousComicId != null)
-            {
-                <a href="/comic/@Model.PreviousComicId">Previous</a>
-            }
-            @if (Model?.NextComicId != null)
-            {
-                <a href="/comic/@Model.NextComicId">Next</a>
-            }
+            <div class="btn-group btn-group-lg" role="group" aria-label="Navigation">
+                @if (Model?.PreviousComicId != null)
+                {
+                    if (Model.FirstComicId != null)
+                    {
+                        <a class="btn btn-outline-dark" href="/comic/@Model.FirstComicId"><i class="fas fa-reply"></i></a>
+                    }
+                    <a class="btn btn-outline-dark" href="/comic/@Model.PreviousComicId"><i class="fas fa-angle-left"></i> Previous</a>
+                }
+                @if (Model?.NextComicId != null)
+                {
+                    <a class="btn btn-outline-dark" href="/comic/@Model.NextComicId">Next <i class="fas fa-angle-right"></i> </a>
+                    if (Model.LastComicId != null)
+                    {
+                        <a class="btn btn-outline-dark" href="/comic/@Model.LastComicId"><i class="fas fa-share"></i></a>
+                    }
+                }
+            </div>
         </div>
     </div>
 </div>
