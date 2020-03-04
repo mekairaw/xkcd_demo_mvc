@@ -3,13 +3,22 @@
     ViewData["Title"] = @Model.NextComicId == null ? "Comic of the Day!" : Model?.Comic?.SafeTitle;
 }
 
-<div class="row">
+<div class="row align-middle">
     <div class="col-sm-12">
+        <div class="card text-white bg-dark text-center">
+            <img class="card-img-top" alt="@Model?.Comic?.Alt" src="@Model?.Comic?.Img" />
+            <div class="card-header"><h3>@Model?.Comic?.SafeTitle</h3></div>
+            <div class="card-body">
+                <p class="card-text">@Model?.Comic?.Alt</p>
+            </div>
+        </div>
+        <!--
         <div class="text-center">
             <h1>@Model?.Comic?.Title</h1>
             <img class="img-fluid" alt="@Model?.Comic?.Alt" src="@Model?.Comic.Img"/>
             <h4>@Model?.Comic?.Alt</h4>
         </div>
+        -->
         <div class="text-center">
             @if (Model?.PreviousComicId != null)
             {
