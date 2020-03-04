@@ -7,17 +7,17 @@
     <div class="col-sm-12">
         <div class="text-center">
             <h1>@Model?.Comic?.Title</h1>
-            <img alt="@Model?.Comic?.Alt" src="@Model?.Comic.Img"/>
+            <img class="img-fluid" alt="@Model?.Comic?.Alt" src="@Model?.Comic.Img"/>
             <h4>@Model?.Comic?.Alt</h4>
         </div>
         <div class="text-center">
-            @if(Model?.NextComicId != null)
-            {
-                <a href="/comic/@Model.NextComicId">Next</a>
-            }
-            @if(Model?.PreviousComicId != null)
+            @if (Model?.PreviousComicId != null)
             {
                 <a href="/comic/@Model.PreviousComicId">Previous</a>
+            }
+            @if (Model?.NextComicId != null)
+            {
+                <a href="/comic/@Model.NextComicId">Next</a>
             }
         </div>
     </div>
