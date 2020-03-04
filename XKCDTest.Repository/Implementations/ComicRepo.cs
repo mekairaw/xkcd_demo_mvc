@@ -45,5 +45,16 @@ namespace XKCDTest.Repository.Implementations
                 return null;
             }
         }
+        public Task<int?> GetIdOfFirstComic()
+        {
+            try
+            {
+                return Task.Run(() => (int?)1);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
