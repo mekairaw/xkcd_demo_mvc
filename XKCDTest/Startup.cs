@@ -13,7 +13,6 @@ using XKCDTest.Repository.Interfaces;
 using XKCDTest.Repository.Implementations;
 using XKCDTest.Service.Interfaces;
 using XKCDTest.Service.Implementations;
-using Refit;
 
 namespace XKCDTest
 {
@@ -30,7 +29,7 @@ namespace XKCDTest
         {
             services.AddControllersWithViews().AddNewtonsoftJson();
 
-            services.AddRefitClient<IAPI>().ConfigureHttpClient(client => client.BaseAddress = new Uri("https://xkcd.com"));
+            services.AddHttpClient<IAPI, API>();
             services.AddScoped<IComicRepo, ComicRepo>();
             services.AddScoped<IComicService, ComicService>();
         }

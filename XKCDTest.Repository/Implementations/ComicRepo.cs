@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Refit;
 using XKCDTest.DTO.ViewModels;
 using XKCDTest.Repository.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,11 +11,9 @@ namespace XKCDTest.Repository.Implementations
     public class ComicRepo: IComicRepo
     {
         private readonly IAPI _api;
-
-        [ActivatorUtilitiesConstructor]
-        public ComicRepo()
+        public ComicRepo(IAPI api)
         {
-            _api = RestService.For<IAPI>("https://xkcd.com");
+            _api = api;
         }
         public async Task<VMComicDetail> GetComicOfDay(int? id)
         {
@@ -49,7 +46,7 @@ namespace XKCDTest.Repository.Implementations
         {
             try
             {
-                return Task.Run(() => (int?)1);
+                return _api.GetFirstComicId();
             }
             catch (Exception)
             {
