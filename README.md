@@ -1,5 +1,4 @@
 # XKCD Demo by Dustin Espinoza
-----
 This App is a comic viewer that uses [xckd](https://xkcd.com/) as its source.
 
 ## Live Demo
